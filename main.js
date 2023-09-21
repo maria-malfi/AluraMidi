@@ -15,5 +15,24 @@ const listadeTeclas = document.querySelector('.tecla');
 
 
 for (let contador = 0; contador < listadeTeclas.length; contador++ ){
+  
+    const tecla = listadeTeclas[contador];
+    const instrumento = tecla.clasLista[1];
+    const idAudio = '#som_${instrumento}';
+
+    tecla.onclick = function(){
+        tocaSom(idAudio);
+    }
     
+    tecla.onkeydown = function (evento) {
+       
+        if (evento.code === "Space" || evento.code === 'Enter') {
+        tecla.clasList.add("ativa");
+       }
+
+    }
+
+    tecla.onkeydown = function(){
+        tecla.classList.remove("ativa");
+    }
 }
